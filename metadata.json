@@ -1,0 +1,6 @@
+{
+  "name": "Notematics",
+  "description": "A smart mobile note-taking app with a local math engine and AI-powered insights, featuring a Material Design 3 Glassmorphism interface.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["Firebase", "Gemini AI", "Local Math Parser"]
+}

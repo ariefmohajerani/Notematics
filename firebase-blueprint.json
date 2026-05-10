@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with token tracking",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "tokens": { "type": "integer", "description": "Remaining AI tokens (max 10)" },
+        "lastReset": { "type": "string", "format": "date-time", "description": "Timestamp of last token reset" }
+      },
+      "required": ["uid", "tokens", "lastReset"]
+    },
+    "Note": {
+      "title": "Note",
+      "description": "A user note with math capabilities",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "color": { "type": "string" },
+        "isPinned": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "content", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User specific data and tokens"
+    },
+    "/notes/{noteId}": {
+      "schema": "Note",
+      "description": "Collection of notes"
+    }
+  }
+}
